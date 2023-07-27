@@ -1,0 +1,29 @@
+#what do we want
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+#how do we implment
+#what do we want
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: local-storage
+spec:
+  capacity: 
+    storage: 20gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/some/directory/stractured"
+    type: DirectoryOrCreate
+
+     
